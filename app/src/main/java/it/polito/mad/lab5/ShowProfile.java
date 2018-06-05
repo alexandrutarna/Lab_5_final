@@ -68,7 +68,6 @@ public class ShowProfile extends AppCompatActivity  implements View.OnClickListe
     private TextView textView;
     //BAMBA
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -346,9 +345,16 @@ public class ShowProfile extends AppCompatActivity  implements View.OnClickListe
 
         if (imageUrl != null) {
             try {
+
+                ImageView imageViewRound = (ImageView) findViewById(R.id.img);
+
                 imageBitmap = decodeFromFirebaseBase64(imageUrl);
-                final ImageView img = findViewById(R.id.img);
-                img.setImageBitmap(imageBitmap);
+
+                imageViewRound.setImageBitmap(imageBitmap);
+
+//                imageBitmap = decodeFromFirebaseBase64(imageUrl);
+//                final ImageView img = findViewById(R.id.img);
+//                img.setImageBitmap(imageBitmap);
                 //System.out.println("la sto prendendo dal database");
             } catch (IOException e) {
                 e.printStackTrace();
